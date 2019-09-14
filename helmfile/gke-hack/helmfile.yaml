@@ -1,0 +1,13 @@
+helmDefaults:
+  tillerless: true
+
+releases:
+- name: gke-hack
+  chart: ./
+  hooks:
+  - events: ["presync"]
+    showlogs: true
+    command: bash
+    args:
+    - -c
+    - kubectl delete configmap -n kube-system kube-dns-autoscaler

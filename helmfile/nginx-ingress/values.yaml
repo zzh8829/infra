@@ -1,0 +1,57 @@
+controller:
+  hostNetwork: true
+
+  livenessProbe:
+    failureThreshold: 10
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 3
+    port: 10254
+  readinessProbe:
+    failureThreshold: 10
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 3
+    port: 10254
+
+  replicaCount: 1
+
+  resources:
+    limits:
+      cpu: 100m
+      memory: 256Mi
+    requests:
+      cpu: 10m
+      memory: 128Mi
+
+  service:
+    type: ClusterIP
+    clusterIP: None
+    annotations:
+      external-dns.alpha.kubernetes.io/hostname: "*.zihao.me"
+      external-dns.alpha.kubernetes.io/use-external-host-ip: true
+      external-dns.alpha.kubernetes.io/cloudflare-proxied: false
+
+  # priorityClassName: nginx
+
+## Rollback limit
+##
+revisionHistoryLimit: 2
+
+## Default 404 backend
+##
+defaultBackend:
+  enabled: true
+  name: default-backend
+  resources:
+    limits:
+      cpu: 10m
+      memory: 20Mi
+    requests:
+      cpu: 10m
+      memory: 20Mi
+
+tcp: {}
+udp: {}

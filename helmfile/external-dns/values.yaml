@@ -1,0 +1,16 @@
+image:
+  repository: zihao/play
+  tag: external-dns
+  pullPolicy: Always
+sources:
+  - service
+provider: cloudflare
+cloudflare:
+  apiKey: {{ requiredEnv "CF_API_KEY" | quote }}
+  email: {{ requiredEnv "CF_EMAIL" | quote }}
+  proxied: true
+rbac:
+  create: true
+extraArgs:
+  publish-host-ip: ''
+logLevel: debug

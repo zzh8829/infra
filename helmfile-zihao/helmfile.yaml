@@ -1,0 +1,14 @@
+helmDefaults:
+  tillerless: true
+
+releases:
+- name: zihao-me
+  chart: ./zihao-me
+- name: nodecraft
+  chart: ./nodecraft
+- name: hello
+  chart: ./hello
+- name: urbanpulse
+  chart: ./urbanpulse
+- name: play-hextile
+  chart: ./play-hextile

@@ -1,0 +1,27 @@
+helmfiles:
+- ./gke-hack/helmfile.yaml
+- ./cert-manager/helmfile.yaml
+
+helmDefaults:
+  tillerless: true
+
+releases:
+- name: kubernetes-dashboard
+  namespace: kube-system
+  chart: stable/kubernetes-dashboard
+  values:
+    - ./kubernetes-dashboard/values.yaml
+- name: nginx-ingress
+  chart: stable/nginx-ingress
+  values:
+    - ./nginx-ingress/values.yaml
+  force: true
+- name: openvpn
+  chart: stable/openvpn
+  values:
+    - ./openvpn/values.yaml
+  force: true
+- name: external-dns
+  chart: stable/external-dns
+  values:
+    - ./external-dns/values.yaml

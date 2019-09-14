@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Make gke cluster use less resource
+name: gke-hack
+version: 0.0.2

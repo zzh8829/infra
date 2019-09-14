@@ -1,0 +1,33 @@
+updateStrategy:
+  type: Recreate
+service:
+  type: ClusterIP
+  externalPort: 443
+  internalPort: 443
+  clusterIP: None
+  hostPort: 443
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: openvpn.zihao.me
+    external-dns.alpha.kubernetes.io/use-external-host-ip: "true"
+resources:
+  limits: {}
+  requests:
+    cpu: 10m
+    memory: 10Mi
+persistence:
+  enabled: true
+  ## A manually managed Persistent Volume and Claim
+  ## Requires persistence.enabled: true
+  ## If defined, PVC must be created manually before volume will be bound
+  existingClaim: openvpn-pvc
+openvpn:
+  # Network allocated for openvpn clients (default: 10.240.0.0).
+  OVPN_NETWORK: 10.240.0.0
+  # Network subnet allocated for openvpn client (default: 255.255.0.0).
+  OVPN_SUBNET: 255.255.0.0
+  # Protocol used by openvpn tcp or udp (default: udp).
+  OVPN_PROTO: tcp
+  # Kubernetes pod network (optional).
+  OVPN_K8S_POD_NETWORK: "10.19.0.0"
+  # Kubernetes pod network subnet (optional).
+  OVPN_K8S_POD_SUBNET: "255.255.0.0"
