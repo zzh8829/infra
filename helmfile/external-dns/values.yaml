@@ -4,11 +4,6 @@ image:
   pullPolicy: Always
 sources:
   - service
-provider: cloudflare
-cloudflare:
-  apiKey: {{ requiredEnv "CF_API_KEY" | quote }}
-  email: {{ requiredEnv "CF_EMAIL" | quote }}
-  proxied: true
 rbac:
   create: true
 extraArgs:

@@ -25,3 +25,8 @@ releases:
   chart: stable/external-dns
   values:
     - ./external-dns/values.yaml
+    - provider: cloudflare
+    - cloudflare:
+        apiKey: {{ requiredEnv "CF_API_KEY" }}
+        email: {{ requiredEnv "CF_EMAIL" }}
+        proxied: true
