@@ -14,4 +14,4 @@ spec:
         base: 10Mi
       limits:
       - resource: memory
-        base: 100Mi
+        base: 200Mi

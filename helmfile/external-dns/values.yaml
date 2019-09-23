@@ -9,3 +9,8 @@ rbac:
 extraArgs:
   publish-host-ip: ''
 logLevel: debug
+tolerations:
+- key: "node.kubernetes.io/unreachable"
+  operator: "Exists"
+  effect: "NoExecute"
+  tolerationSeconds: 10
