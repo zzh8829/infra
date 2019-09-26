@@ -29,6 +29,9 @@ resource "google_container_cluster" "cluster" {
       disabled = true
     }
   }
+
+  logging_service = "none"
+  monitoring_service = "none"
 }
 
 resource "google_container_node_pool" "f1-micro" {
