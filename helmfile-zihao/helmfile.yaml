@@ -5,7 +5,7 @@ releases:
 - name: zihao-me
   chart: ./zihao-me
 - name: nodecraft
-  chart: ./nodecraft
+  chart: ./../../nodecraft/helm
 - name: hello
   chart: ./hello
 - name: urbanpulse
