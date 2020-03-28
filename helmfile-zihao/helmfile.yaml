@@ -1,11 +1,15 @@
 helmDefaults:
   tillerless: true
 
+repositories:
+- name: nodecraft
+  url: git+https://github.com/zzh8829/nodecraft?ref=master
+
 releases:
 - name: zihao-me
   chart: ./zihao-me
 - name: nodecraft
-  chart: ./../../nodecraft/helm
+  chart: nodecraft/helm
 - name: hello
   chart: ./hello
 - name: urbanpulse

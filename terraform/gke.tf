@@ -74,7 +74,7 @@ resource "google_container_node_pool" "f1-micro" {
 }
 
 resource "google_container_node_pool" "g1-small" {
-  name     = "g1-small-pool"
+  name     = "e2-small-pool"
   location = "${var.region}-a"
   cluster  = "${google_container_cluster.cluster.name}"
 
@@ -91,7 +91,7 @@ resource "google_container_node_pool" "g1-small" {
 
   node_config {
     preemptible  = true
-    machine_type = "g1-small"
+    machine_type = "e2-small"
     disk_size_gb = 30
 
     metadata = {
